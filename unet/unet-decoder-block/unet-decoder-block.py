@@ -20,8 +20,8 @@ def unet_decoder_block(x: np.ndarray, skip: np.ndarray, out_channels: int) -> np
     x2 = skip_connection(skip, H1,W1)
     x3 = np.zeros((B,H1,W1,C1 + x2.shape[-1]))
     
-    H_out = H1 - 4
-    W_out = W1 - 4
+    H_out = x3.shape[1] - 4
+    W_out = x3.shape[2] - 4
     out = np.zeros((B, H_out, W_out, out_channels))
 
     return out

@@ -8,5 +8,6 @@ def identity_block(x, W1, W2):
     W1 = np.array(W1)
     W2 = np.array(W2)
     h = np.maximum(0,x @ W1.T)
-    y = np.maximum(0,h @ W2.T + x)
+    F_x = h @ W2.T
+    y = np.maximum(0, F_x + x)
     return y
